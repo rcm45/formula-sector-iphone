@@ -2,35 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Formula Sector Live</title>
+<title>Formula Sector Live - Circuit de Barcelona-Catalunya</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Sector Live">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="app">
 <header class="topbar">
   <div class="topbar-in">
-    <div class="brand"><span class="mark"><i></i><i></i><i></i></span><span>Formula Sector</span></div>
-    <div class="bar-title"><span>Race</span><b id="bar-timer">14:17</b></div>
+    <div class="brand"><span class="mark"><i></i><i></i><i></i></span><span class="grad-text">Formula Sector</span></div>
+    <div class="bar-title"><span>Spanish GP</span><b id="bar-timer">39:26</b></div>
     <div class="status"><i></i>LIVE</div>
   </div>
 </header>
 
 <main class="page">
 <section class="hero">
-  <div class="hero-top"><p>Race</p><p>Updated just now</p></div>
-  <h1>Gran Premio de Barcelona-Catulunya</h1>
-  <div class="sub">Formula Sector Championship, Round 2</div>
+  <div class="hero-top"><p>Gran Premio de España</p><p>Updated live</p></div>
+  <h1 class="grad-text">Circuit de Barcelona-Catalunya</h1>
+  <div class="sub">Formula Sector Championship • Lap 29 / 29</div>
   <div class="strip">
-    <div><span>Time left</span><strong id="clock">14:17</strong></div>
-    <div><span>Air</span><strong>24° <small>☼</small></strong></div>
-    <div><span>Track</span><strong>33°</strong></div>
+    <div><span>Duration</span><strong id="clock">39:26.835</strong></div>
+    <div><span>Air Temp</span><strong>26° <small>☼</small></strong></div>
+    <div><span>Track Temp</span><strong>41°</strong></div>
+    <div><span>Track Status</span><strong style="color:#30d158">Track Clear</strong></div>
     <span class="progress"><i id="progress"></i></span>
   </div>
 </section>
@@ -38,44 +38,63 @@
 <div class="layout">
 <section class="map-section">
   <div class="map-card">
-    <svg id="map" viewBox="0 0 360 150" aria-label="Track map">
-      <path id="track-under"></path><path id="track"></path><path id="track-line"></path>
-      <g id="finish"></g><g id="dots"></g>
+    <svg id="map" viewBox="0 0 500 220" aria-label="Circuit de Barcelona-Catalunya map">
+      <defs>
+        <linearGradient id="dot-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0a84ff" />
+          <stop offset="50%" stop-color="#bf5af2" />
+          <stop offset="100%" stop-color="#ff3b30" />
+        </linearGradient>
+      </defs>
+      <path id="track-under"></path>
+      <path id="track"></path>
+      <path id="track-line"></path>
+      <g id="dots"></g>
     </svg>
-    <div class="map-cap"><span>Track</span><span id="map-lap">Lap 9</span></div>
+    <div class="map-cap"><span>Circuit de Barcelona-Catalunya (4.675 km)</span><span id="map-lap">Final Lap • Lap 29</span></div>
   </div>
 </section>
 
 <section>
 <div class="section-head">
-  <div><h2>Leaderboard</h2><p id="board-sub">16 drivers</p></div>
+  <div><h2>Leaderboard</h2><p id="board-sub">8 Drivers Classification</p></div>
   <div class="seg" id="gap-seg">
     <span class="thumb"></span><button data-mode="interval">Interval</button><button data-mode="leader">Leader</button>
   </div>
 </div>
-<div class="board-head"><span>Pos</span><span>Driver</span><span>Tyre</span><span id="h-gap">Interval</span><span>Last</span><span>Best</span><span>Laps</span><span>Top speed</span></div>
-<ol class="board" id="board"></ol>
+<div class="board-container">
+  <div class="board-head">
+    <span>Pos</span><span>Driver</span><span>Vehicle</span><span>Laps</span><span id="h-gap">Time / Gap</span><span>Best Lap</span><span>Consistency</span><span>Led</span>
+  </div>
+  <ol class="board" id="board"></ol>
+</div>
 </section>
 
 <section>
-<div class="section-head"><div><h2>Race Control</h2><p>Live event feed</p></div></div>
+<div class="section-head"><div><h2>Race Control</h2><p>Official Event Feed</p></div></div>
 <div class="group" id="feed"></div>
 </section>
 
 <section>
-<div class="group"><button class="row-link" id="stored-btn"><span>Stored times</span><span class="link-meta">5 drivers</span><b>›</b></button></div>
+<div class="group">
+  <button class="row-link" id="stored-btn">
+    <span>Telemetry Summary</span>
+    <span class="link-meta">8 drivers</span>
+    <b>›</b>
+  </button>
+</div>
 </section>
 </div>
-<footer>Prototype with made-up data. Nothing here comes from a real server.</footer>
+<footer>Racecraft Media Telemetry Engine • Circuit de Barcelona-Catalunya</footer>
 </main>
 
 <div class="sheet-root" id="sheet-root" hidden>
-<div class="sheet-backdrop" id="sheet-backdrop"></div>
-<section class="sheet" role="dialog" aria-modal="true">
-<div class="sheet-handle"><span></span></div>
-<header><h2 id="sheet-title"></h2><button id="sheet-close">×</button></header>
-<div class="sheet-body" id="sheet-body"></div>
-</section>
+  <div class="sheet-backdrop" id="sheet-backdrop"></div>
+  <section class="sheet" role="dialog" aria-modal="true">
+    <div class="sheet-handle"><span></span></div>
+    <header><h2 id="sheet-title">Driver Telemetry</h2><button id="sheet-close">×</button></header>
+    <div class="sheet-body" id="sheet-body"></div>
+  </section>
 </div>
 </div>
 <script src="app.js"></script>

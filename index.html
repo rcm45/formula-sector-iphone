@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Formula Sector Live</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sector Live">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand"><span class="mark"><i></i><i></i><i></i></span><span>Formula Sector</span></div>
+    <div class="bar-title"><span>Race</span><b id="bar-timer">14:17</b></div>
+    <div class="status"><i></i>LIVE</div>
+  </div>
+</header>
+
+<main class="page">
+<section class="hero">
+  <div class="hero-top"><p>Race</p><p>Updated just now</p></div>
+  <h1>Ridgeway GP</h1>
+  <div class="sub">Formula Sector Championship, Round 4</div>
+  <div class="strip">
+    <div><span>Time left</span><strong id="clock">14:17</strong></div>
+    <div><span>Air</span><strong>24° <small>☼</small></strong></div>
+    <div><span>Track</span><strong>33°</strong></div>
+    <span class="progress"><i id="progress"></i></span>
+  </div>
+</section>
+
+<div class="layout">
+<section class="map-section">
+  <div class="map-card">
+    <svg id="map" viewBox="0 0 360 150" aria-label="Track map">
+      <path id="track-under"></path><path id="track"></path><path id="track-line"></path>
+      <g id="finish"></g><g id="dots"></g>
+    </svg>
+    <div class="map-cap"><span>Track</span><span id="map-lap">Lap 9</span></div>
+  </div>
+</section>
+
+<section>
+<div class="section-head">
+  <div><h2>Leaderboard</h2><p id="board-sub">16 drivers</p></div>
+  <div class="seg" id="gap-seg">
+    <span class="thumb"></span><button data-mode="interval">Interval</button><button data-mode="leader">Leader</button>
+  </div>
+</div>
+<div class="board-head"><span>Pos</span><span>Driver</span><span>Tyre</span><span id="h-gap">Interval</span><span>Last</span><span>Best</span><span>Laps</span><span>Top speed</span></div>
+<ol class="board" id="board"></ol>
+</section>
+
+<section>
+<div class="section-head"><div><h2>Race Control</h2><p>Live event feed</p></div></div>
+<div class="group" id="feed"></div>
+</section>
+
+<section>
+<div class="group"><button class="row-link" id="stored-btn"><span>Stored times</span><span class="link-meta">5 drivers</span><b>›</b></button></div>
+</section>
+</div>
+<footer>Prototype with made-up data. Nothing here comes from a real server.</footer>
+</main>
+
+<div class="sheet-root" id="sheet-root" hidden>
+<div class="sheet-backdrop" id="sheet-backdrop"></div>
+<section class="sheet" role="dialog" aria-modal="true">
+<div class="sheet-handle"><span></span></div>
+<header><h2 id="sheet-title"></h2><button id="sheet-close">×</button></header>
+<div class="sheet-body" id="sheet-body"></div>
+</section>
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

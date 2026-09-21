@@ -44,7 +44,7 @@ function moveDots(){
 }
 setInterval(moveDots,80);moveDots();
 
-const feedData=[["14:12","Green flag. Race underway."],["13:48","Driver #77 enters Turn 6 off-line."],["12:56","Fastest lap: Anderson Osas, 1:23.902."],["11:21","DRS enabled across the circuit."],["09:44","Yellow flag cleared at Sector 2."]];
+const feedData=[["14:12","Green flag. Race underway."],["13:48","Driver #17 enters Turn 6 off-line."],["12:56","Fastest lap: Anderson, 1:23.902."],["11:21","DRS enabled across the circuit."],["09:44","Yellow flag cleared at Sector 2."]];
 document.querySelector("#feed").innerHTML=feedData.map(x=>`<div class="feed-row"><span class="feed-time">${x[0]}</span><i class="feed-dot"></i><span class="feed-text">${x[1]}</span></div>`).join("");
 
 const root=document.querySelector("#sheet-root"),title=document.querySelector("#sheet-title"),body=document.querySelector("#sheet-body");
